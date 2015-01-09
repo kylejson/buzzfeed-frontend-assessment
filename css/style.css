@@ -1,0 +1,93 @@
+/* Palette used -> http://www.colorzilla.com/chrome/ only as an alternative to the inspect element because of restriction.
+*
+* blue #07e
+* gray(icons) #bbb
+* gray(box parent) #e7e7e7
+* gray(box child) #f5f5f5
+* gray(timestamp) #888
+* The text is def Proxima Nova
+*/
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* referenced -> http://caniuse.com/#search=box-sizing */
+}
+
+#comments-container {
+  width: 625px;
+}
+
+#comments-container > li:last-child{
+  clear: both;
+}
+
+#load-more {
+  clear: both;
+  font-family: ;
+  padding: 10px;
+}
+
+#wrapper{
+  margin: 0 auto;
+  width: 1020px;
+}
+
+h1 {
+  font-family: 'Lucina Grande', 'Arial', sans-serif; 
+  font-size: 25px;
+}
+
+ul {
+  list-style: none;
+}
+
+time {
+  color: #888;
+  display: block;
+  font-size: 10px;
+}
+
+.single-comment {
+  background-color: #e7e7e7;
+  clear: both;
+  font-family: 'Proxima Nova', 'helvetica', sans-serif;
+  margin: 2px 0;
+  padding: 10px
+}
+
+.user {
+  margin-bottom: 10px;
+}
+
+.user-info {
+  margin-left: 30px;
+}
+
+.user-info > a {
+  color: #07e;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.user-avatar {
+  float: left;
+}
+
+.text-content {
+  clear: both;
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.icons > li {
+  display: inline;
+}
+
+.child-comment {
+  background-color: #f5f5f5;
+  float: right;
+  width: 585px;
+}

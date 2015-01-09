@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buzzfeed Test</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <h1>Contributions</h1>
+
+    <ul id="comments-container">
+      <!-- single comment template -->
+    </ul>
+
+    <button id="load-more">Load More Responses...</button>
+  </div>
+
+  <script id="comment-template" type="text/x-handlebars-template">
+    {{#if this.blurb}}
+      <li class="single-comment {{#if this.parent_id}}child-comment{{/if}}">
+        <section class="user">
+          <div class="user-avatar">
+            <a href="">
+            <img src="img/user.jpg" alt="user avatar">
+          </a>
+          </div>
+
+          <div class="user-info">
+            <a href="">{{this.user_info.display_name}}</a>
+            <time class="timeago" datetime="{{this.f_raw}}"></time>
+          </div>
+        </section>
+
+        <section class="text-content">
+          <article>{{this.blurb}}</article>
+        </section>
+
+        <section class="comment-actions">
+          <ul class="icons">
+            <li class="love">
+              <img src="img/love_small.png">
+                {{#if this.love_count }}
+                  {{this.love_count}}
+                {{else}}
+                  0
+                {{/if}}
+            </li>
+
+            <li class="hate">
+              <img src="img/hate_small.png">
+                {{#if this.hate_count }}
+                  {{this.hate_count}}
+                {{else}}
+                  0
+                {{/if}}
+            </li>
+          </ul>
+        </section>
+      </li>
+    {{/if}}
+  </script>
+
+  <script id="comments-template" type="text/x-handlebars-template">
+    {{#each comments}}
+        {{> comment}}
+      {{#each this.children}}
+        {{> comment }}
+      {{/each}}
+    {{/each}}
+  </script>
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/handlebars-v2.0.0.js"></script>
+  <script src="js/time-ago.js"></script>
+  <script src="js/comments-module.js"></script>
+
+  <script>
+    $(function () {
+      Handlebars.registerPartial('comment', $('#comment-template').html());
+      CommentsModule.init(3494459, $('#comments-template'), $('#comments-container'));
+    });
+  </script>
+</body>
+</html>
